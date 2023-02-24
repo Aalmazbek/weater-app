@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.1s;
+    color: white;
+}
+
+
+
+.hide{
+    display: none!important;
+}
+
+
+
+
+
+body{
+    height: 100%;
+    background: linear-gradient(192.05deg, #456bc5 0%, #3e62b6 100%);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header{
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+header div img{
+    height: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.current-forecast{
+    text-align: center;
+    font-weight: 300;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.current-forecast h3{
+    font-size: 4vh;
+    font-weight: 300;
+}
+
+.current-forecast h1{
+    font-size: 13vh;
+    font-weight: 200;
+}
+
+.current-forecast h1::after{
+    content: "°";
+    position: absolute;
+}
+
+.current-forecast p{
+    font-size: 2vh;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hourly-forecast{
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    margin: 5vh auto;
+    padding: 1.5vh 2vh;
+
+    border-radius: 15px;
+}
+
+
+.hourly-forecast hr, .daily-forecast hr{
+    margin: 1vh 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+.hourly-forecast div:last-of-type{
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.hourly-forecast div:last-of-type .hourly-forecast-card{
+    height: 12vh;
+    min-height: 110px;
+    min-width: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 5%;
+    overflow: hidden;
+}
+
+.hourly-forecast div:last-of-type .hourly-forecast-card img{
+    width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.daily-forecast{
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    margin: 5vh auto;
+    padding: 1vh 1.5vh;
+
+    border-radius: 15px;
+}
+
+.daily-forecast > div:first-of-type{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.daily-forecast > div:first-of-type img{
+    height: 25px;
+    margin-right: 5%;
+}
+
+
+
+
+.daily-forecast > div:last-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+.daily-forecast .daily-forecast-card{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.daily-forecast .daily-forecast-card h2{
+    width: 30%;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+
+.daily-forecast .daily-forecast-card img{
+    height: 90%;
+}
+
+
+.daily-forecast .daily-forecast-card .temp{
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.daily-forecast .daily-forecast-card .temp p{
+    width: 50px;
+}
+
+.daily-forecast .daily-forecast-card .temp .temp-scale{
+    width: 40%;
+    height: 5px;
+    position: relative;
+}
+
+
+.daily-forecast .daily-forecast-card .temp .temp-scale .left, .daily-forecast .daily-forecast-card .temp .temp-scale .right{
+    height: 100%;
+    position: absolute;
+    background-color: rgb(58, 58, 58);
+    top: 0;
+}
+
+
+.daily-forecast .daily-forecast-card .temp .temp-scale .temp-scale-gradient{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(to right, 
+    #264CFF,
+    #3FA0FF,
+    #72D8FF,
+    #AAF7FF,
+    #E0FFFF,
+    #FFFFBF,
+    #FFE099,
+    #FFAD72,
+    #F76D5E,
+    #D82632,
+    #A50021)
+}
+
+
+.daily-forecast .daily-forecast-card .temp .temp-scale .right{
+    right: 0;
+    width: 10%!important;
+}
