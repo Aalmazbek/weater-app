@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather-App</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-    <header>
-        <div class="clock"></div>
-        <div class="status">
-            <img src="./img/Соединение.svg" alt="">
-            <img src="./img/Wifi.svg" alt="">
-            <img src="./img/Батарея.svg" alt="">
-        </div>
-    </header>
-
-    
-
-    <div class="current-forecast"></div>
-
-    <div class="hourly-forecast">
-        <div></div>
-        <hr>
-        <div></div>
+    <div class="cities-slider-viewport">
+        <div class="cities-slider"></div>
     </div>
 
-    <div class="daily-forecast">
-        <div></div>
-        <hr>
-        <div></div>
+
+
+    <div class="city-control">
+        <img src="./img/back-arrow.svg" alt="">
+
+        <h1>Управление городами</h1>
+
+        <div class="input">
+            <img src="./img/search.svg" alt="">
+            <input type="text" placeholder="Введите местоположение">
+        </div>
+
+        <div class="cities"></div>
+        <div class="search-results hide"></div>
     </div>
 
     

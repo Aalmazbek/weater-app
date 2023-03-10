@@ -20,10 +20,9 @@
 
 
 body{
-    height: 100%;
-    background: linear-gradient(192.05deg, #456bc5 0%, #3e62b6 100%);
-    background-size: 100%;
     background-repeat: no-repeat;
+    
+    position: relative;
 }
 
 
@@ -41,20 +40,38 @@ body{
 
 
 
-header{
-    height: 7vh;
+
+
+
+
+.cities-slider-viewport{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+.cities-slider{
+    width: fit-content;
+    height: 100vh;
+
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 6%;
-    font-size: 1.2em;
-    font-weight: 400;
+    /* flex-direction: row-reverse; */
+    background: linear-gradient(192.05deg, #456bc5 0%, #3e62b6 100%);
+
 }
 
-header div img{
-    height: 15px;
+
+.cities-slider-page{
+    width: 100vw;
+    height: 100%;
+
+    overflow: auto;
 }
 
+.cities-slider-page div{
+}
 
 
 
@@ -70,20 +87,41 @@ header div img{
 
 
 .current-forecast{
+    height: 33vh;
+
     text-align: center;
     font-weight: 300;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    padding: 4vh 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(192.05deg, #456bc5 0%, #3e62b6 300%);
+
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0);
+    transition: 0.2s;
+}
+
+
+.current-forecast img{
+    width: 35px;
+    position: absolute;
+    /* background: none; */
+    /* border: none; */
+    z-index: 100;
+    left: 5%;
 }
 
 
 
 .current-forecast h3{
-    font-size: 4vh;
+    font-size: 3.5vh;
     font-weight: 300;
 }
 
 .current-forecast h1{
-    font-size: 13vh;
+    font-size: 12vh;
     font-weight: 200;
 }
 
@@ -112,8 +150,8 @@ header div img{
 
 
 .hourly-forecast{
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.2);
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.15);
 
     margin: 5vh auto;
     padding: 1.5vh 2vh;
@@ -134,7 +172,8 @@ header div img{
     width: 100%;
     display: flex;
     align-items: center;
-    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .hourly-forecast div:last-of-type .hourly-forecast-card{
@@ -170,8 +209,8 @@ header div img{
 
 
 .daily-forecast{
-    width: 80%;
-    background-color: rgba(0, 0, 0, 0.2);
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.15);
 
     margin: 5vh auto;
     padding: 1vh 1.5vh;
@@ -239,22 +278,15 @@ header div img{
 .daily-forecast .daily-forecast-card .temp .temp-scale{
     width: 40%;
     height: 5px;
-    position: relative;
-}
-
-
-.daily-forecast .daily-forecast-card .temp .temp-scale .left, .daily-forecast .daily-forecast-card .temp .temp-scale .right{
-    height: 100%;
-    position: absolute;
-    background-color: rgb(58, 58, 58);
-    top: 0;
-}
-
-
-.daily-forecast .daily-forecast-card .temp .temp-scale .temp-scale-gradient{
-    width: 100%;
-    height: 100%;
     border-radius: 15px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
     background: linear-gradient(to right, 
     #264CFF,
     #3FA0FF,
@@ -270,7 +302,178 @@ header div img{
 }
 
 
+.daily-forecast .daily-forecast-card .temp .temp-scale .left{
+    background-image: radial-gradient(3px 3px at right, transparent 1000px, rgba(0, 0, 0, 1) 0px);
+}
+
+
+
+
+
+
+
+.daily-forecast .daily-forecast-card .temp .temp-scale .left, .daily-forecast .daily-forecast-card .temp .temp-scale .right{
+    height: 110%;
+}
+
+
+.daily-forecast .daily-forecast-card .temp .temp-scale .temp-scale-gradient{
+    height: 100%;
+    border-radius: 15px;
+}
+
+
 .daily-forecast .daily-forecast-card .temp .temp-scale .right{
-    right: 0;
-    width: 10%!important;
+    background-image: radial-gradient(10px 10px at left, transparent 3px, rgb(0, 0, 0) 2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.city-control{
+    width: 100%;
+    height: 100vh;
+
+    padding: 5%;
+    padding-top: 8%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    
+    background-color: black;
+    
+    transform: translateX(100%);
+    transition: 0.7s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.city-control > img{
+    width: 35px;
+}
+
+
+
+.city-control > h1{
+    font-size: 8.5vw;
+    font-weight: 300;
+    text-align: center;
+
+    margin: 5% 0;
+}
+
+
+
+.city-control > .input{
+    width: 95%;
+    height: 40px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+
+.city-control > .input img{
+    width: 20px;
+    position: absolute;
+    z-index: 5;
+    left: 4%;
+
+}
+
+
+
+.city-control > .input input{
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(38, 38, 38);
+
+    color: white;
+    
+    padding-left: 13%;
+    
+    border-radius: 40px;
+    border: none;
+    outline: none;
+}
+
+
+
+.city-control > .cities{
+    margin-top: 5%;
+}
+
+
+.city-control > .cities > .card{
+    width: 100%;
+    height: 100px;
+
+    background: linear-gradient(90deg, #456bc5 0%, #3e62b6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 5% 0;
+    padding: 0 7%;
+
+    border-radius: 15px;
+}
+
+
+.city-control > .cities > .card div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.city-control > .search-results{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.city-control > .search-results .search-result{
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+
+.city-control > .search-results .search-result h2{
+    font-weight: 300;
+}
+
+
+.city-control > .search-results .search-result img{
+    width: 20px;
 }
