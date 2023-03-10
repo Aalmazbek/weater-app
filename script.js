@@ -235,6 +235,7 @@ $cityControlInput.addEventListener('input', function(){
                     weatherCitiesArray.push(citiesGeolocation[citiesGeolocation.findIndex(item => item.name == elem.name)])
                     console.log(weatherCitiesArray);
                     localStorage.setItem('weatherCities', JSON.stringify(weatherCitiesArray))
+                    location.reload()
                 })
             }
         })
